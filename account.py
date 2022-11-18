@@ -13,13 +13,24 @@ class Account:
     def deposit(self, amount: int) -> bool:
         """
         Method to add a deposit to account balance
-        :param amount: amount to be deposited into account
+        :param amount: amount to add to account balance
         :return: True if successfully added amount to account balance, False if unsuccessful
         """
         if amount > 0:
             self.__account_balance += amount
             return True
         return False
+
+    def withdraw(self, amount: int) -> bool:
+        """
+        Method to subtract amount from account balance
+        :param amount: amount to subtract to account balance
+        :return: True if successfully subtracted amount from account balance, False is unsuccessful
+        """
+        if amount <= 0 or amount > self.__account_balance:
+            return False
+        self.__account_balance -= amount
+        return True
 
     def get_balance(self) -> int:
         """
